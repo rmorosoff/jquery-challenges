@@ -15,8 +15,8 @@
    * https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
    */
 
-  var saveButton = $('#save-button');
-  var loadButton = $('#load-button');
+  let saveButton = $('#save-button');
+  let loadButton = $('#load-button');
 
   /**
    * Gets the text from the element for you
@@ -33,4 +33,21 @@
   function setText(text) {
     return $('#save-me').val(text);
   }
+
+
+  //  use localStorage.setItem to get text from #save-me and store in myText
+  saveButton.click(function(){
+    console.log("save button clicked");
+    //  use localStorage.setItem to get text from #save-me and store in myText
+    localStorage.setItem('myText', getText());
+    console.log(localStorage.getItem("myText"));
+  })
+
+
+  loadButton.click(function(){
+    console.log("load button clicked");
+    // use localStorage.getItem to retrieve myText, then use setText to put it back in #save-me
+    setText(localStorage.getItem("myText"));
+  })
+
 })();

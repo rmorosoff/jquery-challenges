@@ -42,7 +42,85 @@
   //code in here wont run until page loads
   $(function(){
 
+    // Buttons we need from the DOM, retrieved using jQuery
+    let resetButton = $("#reset");
+    let teamoneShootButton = $("#teamone-shoot");
+    let teamtwoShootButton = $("#teamtwo-shoot");
 
+    // Set the sounds we will use when the shoot button is clicked
+    let shotSound = new Audio("assets/images/Hockey_Shot.wav");
+    let cheeringSound = new Audio("assets/images/Cheering.wav");
+    let booSound = new Audio("assets/images/Boo.wav");
+
+    //  Counters we need from the DOM, using jQuery to get them
+    let resetCounter = $("#num-resets");
+    let teamoneShotCounter = $("#teamone-numshots");
+    let teamoneHitCounter = $("#teamone-numhits");
+    let teamtwoShotCounter = $("#teamtwo-numshots");
+    let teamtwoHitCounter = $("#teamtwo-numhits");
+
+
+
+    // When team One shoot button is clicked increment shot counter and maybe the hit counter
+    teamoneShootButton.click(function(){
+
+      shotSound.play();
+      // Increment shot counter
+      teamoneShotCounter.html(parseInt(teamoneShotCounter.html()) + 1);
+
+      // Timer delay of 1.2 seconds between shot and crowd reaction
+      setTimeout(function(){
+        // Use Math.random to generate shot success value between 1 and 100
+        let shotSuccess = Math.random() * 100;
+        console.log(shotSuccess);
+
+        // Increment hit counter if shotSuccess is greater than 50
+        if(shotSuccess >= 60) {
+          cheeringSound.play();
+          teamoneHitCounter.html(parseInt(teamoneHitCounter.html()) + 1);
+        } else {
+          booSound.play();
+        }
+      }, 1200);
+
+    })
+
+    // When team Two shoot button is clicked increment shot counter and maybe the hit counter
+    teamtwoShootButton.click(function(){
+
+      shotSound.play();
+      // Increment shot counter
+      teamtwoShotCounter.html(parseInt(teamtwoShotCounter.html()) + 1);
+
+      // Timer delay of 1.2 seconds between shot and crowd reaction
+      setTimeout(function(){
+        // Use Math.random to generate shot success value between 1 and 100
+        let shotSuccess = Math.random() * 100;
+        console.log(shotSuccess);
+
+        // Increment hit counter if shotSuccess is greater than 50
+        if(shotSuccess >= 60) {
+          cheeringSound.play();
+          teamtwoHitCounter.html(parseInt(teamtwoHitCounter.html()) + 1);
+        } else {
+          booSound.play();
+        }
+      }, 1200);
+    })
+
+    // When reset button is clicked we need to increment the reset counter and zero out all other Counters
+    resetButton.click(function(){
+
+      // Increment reset counter
+      resetCounter.html(parseInt(resetCounter.html()) + 1);
+
+      // Set all other counters to zero
+      teamoneShotCounter.html(0);
+      teamoneHitCounter.html(0);
+      teamtwoShotCounter.html(0);
+      teamtwoHitCounter.html(0);
+
+    })
 
   })
 
