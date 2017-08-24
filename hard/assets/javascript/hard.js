@@ -34,7 +34,45 @@
    //jQuery equivelent to window.onload = function{}
    //code in here wont run until page loads
    $(function(){
+     let templateText = $(".panel h1");
 
+     //  when title is clicked, toggle text color between red and black
+     templateText.click(function(){
+       console.log("Template Text clicked");
+       console.log(templateText.css("color"));
+       //  if color is not red, then make it red
+       if (templateText.css("color") != "rgb(255, 0, 0)"){
+         templateText.css("color", "red");
+       } else //  make color black
+         {
+           console.log("color now" + templateText.css("color"));
+           templateText.css("color", "black");
+         }
+     })
+
+     //  get odd item with class of "title"
+     let oddTitle = $(".title:even");
+     console.log(oddTitle);
+     //  now hide those items
+     oddTitle.hide();
+
+     //  select all p tags, loop through using each, relace "Bacon" with "LASER VISION"
+     //  then set each sentence with the one with the words replaced
+     $(".large-10.columns p").each(function() {
+        var text = $(this).text();
+        text = text.replace("Bacon", "LASER VISION");
+        $(this).text(text);
+      });
+
+
+      //  select all "row post", then use slice to get the last 2, then remove them
+      //  a negative # allows us to slice from the end of the array.  -3 is getting the
+      //  last 2 items, while -2 is only getting the last item.  Not sure why.
+      $(".row.post").slice(-3).remove();
+
+
+      //  Now, remove the images from class "large-3 columns hide-for-small"
+      $(".large-3.columns.hide-for-small img").remove();
 
 
    })

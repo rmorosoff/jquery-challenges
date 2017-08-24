@@ -76,9 +76,11 @@
 
         // Increment hit counter if shotSuccess is greater than 50
         if(shotSuccess >= 60) {
+          $("#scoreboard").css("background-color", "darkblue");
           cheeringSound.play();
           teamoneHitCounter.html(parseInt(teamoneHitCounter.html()) + 1);
         } else {
+          $("#scoreboard").css("background-color", "grey");
           booSound.play();
         }
       }, 1200);
@@ -100,9 +102,11 @@
 
         // Increment hit counter if shotSuccess is greater than 50
         if(shotSuccess >= 60) {
+          $("#scoreboard").css("background-color", "orange");
           cheeringSound.play();
           teamtwoHitCounter.html(parseInt(teamtwoHitCounter.html()) + 1);
         } else {
+          $("#scoreboard").css("background-color", "grey");
           booSound.play();
         }
       }, 1200);

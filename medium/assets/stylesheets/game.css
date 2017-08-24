@@ -34,7 +34,7 @@
 #subheader {
   margin: 0 auto;
   text-align: center;
-  background-color: orange;
+  background-color: white;
   width: 100%;
   height: 100px;
   display: flex;
@@ -48,7 +48,7 @@
 }
 
 #scoreboard {
-  background-color: darkblue;
+  background-color: grey;
   width: 100%;
   height: 600px;
   display: flex;
@@ -57,15 +57,15 @@
 }
 
 .left {
-  border: 1px solid black;
+  border: 1px solid white;
   width: 400px;
   height: 400px;
-  background-color: white;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: orange;
+  background-color: darkblue;
 }
 
 .right {
